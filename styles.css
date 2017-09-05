@@ -1,13 +1,13 @@
-td.selected {
+td.alive {
 	background-color: green;
 }
 
-.demo {
+.game {
 	border: 1px solid #c0c0c0;
 	border-collapse: collapse;
 	padding: 5px;
 }
-.demo td {
+.game td {
 	border: 1px solid #c0c0c0;
 	padding: 5px;
 	/*width: 10%;*/

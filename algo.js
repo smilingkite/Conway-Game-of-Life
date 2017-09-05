@@ -16,3 +16,29 @@
 // (in other words, each generation is a pure function of the preceding one).
 //
 //  The rules continue to be applied repeatedly to create further generations.
+//
+// *** from Codaisseur
+// https://reader.codaisseur.com/courses/intermediate-bootcamp-228c9185-0564-4394-84aa-50f86517c6e2/132/javascript-labs/lab-1-conway-s-game-of-life
+// Implement a single cell. A cell should be square box of a few pixels with a border.
+//
+// Create css classes that make them alive (black background) or dead (white)
+//
+// Implement a Game board. Ideally you will have two constants (like X and Y) and
+// generate a board of X*Y cells (<- multidimensional array).
+// The whole game board should be displayed in the browser,
+// looking somewhat like the picture at the top of this page
+//
+// Write a while(true) loop which will be your main game ‘runner’, ultimately it
+// will implement all the game rules but lets start simple.
+// Maybe start with making it select a random (<- don’t know how? Google knows!)
+// tile in your game board and toggle its state (live/dead). After every cycle,
+// make your runner sleep for a little while.
+//
+// Allow users to click on cells before the game starts, so they can set an initial setup.
+//
+// Implement the actual game rules. You will have to loop (twice for multidimensional)
+// over your entire board. Implement one rule at a time and make sure it works correctly.
+// Think of good initial setups that allow you to test the behaviour.
+// Or write tests that do it for you :)
+//
+// When all that ^ works, write logic that checks if the game is ‘over’
