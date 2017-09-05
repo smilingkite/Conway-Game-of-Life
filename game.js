@@ -1,5 +1,5 @@
-var x = 100;
-var y = 100;
+var x = 10;
+var y = 10;
 
 for (var i = 1; i <= x + 1; i++) {
 	$('tbody').append('<tr></tr>');
