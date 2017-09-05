@@ -1,20 +1,14 @@
-$('td').on('click', function(e) {
-	$(this).toggleClass('selected'); //you can list several class names
-	e.preventDefault();
-});
+var x = 100;
+var y = 100;
 
-function getTableData(table) {
-	var data = [];
-	table.find('tr').each(function(rowIndex, r) {
-		var cols = [];
-		$(this)
-			.find('td')
-			.each(function(colIndex, c) {
-				cols.push(c.hasClass('selected'));
-			});
-		data.push(cols);
-	});
-	return data;
+for (var i = 1; i <= x + 1; i++) {
+	$('tbody').append('<tr></tr>');
+}
+for (var i = 1; i <= y + 1; i++) {
+	$('tr').append('<td></td>');
 }
 
-console.log(getTableData);
+$('td').on('click', function(e) {
+	$(this).toggleClass('alive'); //you can list several class names
+	e.preventDefault();
+});
