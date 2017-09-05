@@ -29,4 +29,12 @@ for (var i = 0; i < x; i++) {
 $('td').on('click', function(e) {
 	$(this).toggleClass('alive');
 	e.preventDefault();
+	var myClasses = this.classList; // gives an array
+	// console.log(myClasses);
+	var thisX = myClasses[0].substring(1);
+	var thisY = myClasses[1].substring(1);
+	console.log(thisX, thisY);
+	if (arr[(thisX, thisY)]) {
+		arr[(thisX, thisY)] = false;
+	} else arr[(thisX, thisY)] = true;
 });
