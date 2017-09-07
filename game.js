@@ -1,5 +1,5 @@
-var x = 1;
-var y = 1;
+var x = 3;
+var y = 3;
 
 // https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(ms) {
@@ -15,8 +15,8 @@ for (var j = 0; j < y; j++) {
 		arr[j].push(false);
 	}
 }
-// arr[0][0] = true;
-// arr[1][1] = true;
+arr[0][0] = true;
+arr[1][1] = true;
 // console.log(arr);
 
 function createTable(arr) {
@@ -58,7 +58,5 @@ while (k < 2) {
 		}
 	}
 	createTable(arr);
-	// console.log('while loop', x);
 	k++;
-	// await sleep(20000);
 }
