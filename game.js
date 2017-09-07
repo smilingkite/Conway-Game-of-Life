@@ -1,12 +1,6 @@
 var x = 3;
 var y = 3;
 
-// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
-function sleep(ms) {
-	console.log('sleep');
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 // array with dead squares (alive = false)
 var arr = [];
 for (var j = 0; j < y; j++) {
@@ -41,22 +35,23 @@ $('td').on('click', function(e) {
 	var myClasses = this.classList;
 	var thisX = myClasses[0].substring(1);
 	var thisY = myClasses[1].substring(1);
-	// console.log(thisX, thisY);
 	if (arr[(thisX, thisY)]) {
 		arr[(thisX, thisY)] = false;
 	} else arr[(thisX, thisY)] = true;
 });
 
 var k = 0;
-while (k < 2) {
-	for (var i = 0; i < x; i++) {
-		for (var j = 0; j < y; j++) {
-			var cssClass = arr[i][j];
-
-			arr[i][j] = !cssClass;
-			console.log(cssClass);
-		}
-	}
-	createTable(arr);
+setInterval(function() {
 	k++;
-}
+	if (k < 3) {
+		for (var i = 0; i < x; i++) {
+			for (var j = 0; j < y; j++) {
+				var cssClass = arr[i][j];
+
+				arr[i][j] = !cssClass;
+				console.log(cssClass);
+			}
+		}
+		createTable(arr);
+	}
+}, 3000);
