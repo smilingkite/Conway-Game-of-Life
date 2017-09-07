@@ -1,5 +1,5 @@
-var x = 3;
-var y = 3;
+var x = 10;
+var y = 10;
 
 // array with dead squares (alive = false)
 var arr = [];
@@ -11,8 +11,20 @@ for (var j = 0; j < y; j++) {
 }
 arr[0][0] = true;
 arr[1][1] = true;
-// console.log(arr);
-
+arr[1][4] = true;
+arr[2][8] = true;
+arr[3][7] = true;
+arr[4][6] = true;
+arr[5][6] = true;
+arr[6][9] = true;
+arr[0][9] = true;
+arr[1][8] = true;
+arr[8][4] = true;
+arr[8][8] = true;
+arr[9][7] = true;
+arr[7][6] = true;
+arr[9][6] = true;
+arr[9][9] = true;
 function createTable(arr) {
 	$('tr').remove();
 	for (var i = 0; i < x; i++) {
@@ -50,7 +62,6 @@ setInterval(function() {
 				var cssClass = arr[i][j];
 
 				arr[i][j] = !cssClass;
-				console.log(cssClass);
 			}
 		}
 		createTable(arr);
