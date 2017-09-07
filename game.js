@@ -14,6 +14,7 @@ arr[1][1] = true;
 // console.log(arr);
 
 function createTable(arr) {
+	$('tr').remove();
 	for (var i = 0; i < x; i++) {
 		var tableRow = $('<tr></tr>').appendTo('tbody');
 		for (var j = 0; j < y; j++) {
@@ -54,4 +55,4 @@ setInterval(function() {
 		}
 		createTable(arr);
 	}
-}, 3000);
+}, 2000);
