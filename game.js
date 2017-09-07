@@ -1,6 +1,7 @@
-var x = 3;
-var y = 3;
+var x = 1;
+var y = 1;
 
+// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleep(ms) {
 	console.log('sleep');
 	return new Promise(resolve => setTimeout(resolve, ms));
@@ -14,11 +15,11 @@ for (var j = 0; j < y; j++) {
 		arr[j].push(false);
 	}
 }
-arr[0][0] = true;
-arr[1][1] = true;
-console.log(arr);
+// arr[0][0] = true;
+// arr[1][1] = true;
+// console.log(arr);
 
-function createTable() {
+function createTable(arr) {
 	for (var i = 0; i < x; i++) {
 		var tableRow = $('<tr></tr>').appendTo('tbody');
 		for (var j = 0; j < y; j++) {
@@ -32,7 +33,7 @@ function createTable() {
 		}
 	}
 }
-createTable();
+createTable(arr);
 
 $('td').on('click', function(e) {
 	$(this).toggleClass('alive');
@@ -52,11 +53,11 @@ while (k < 2) {
 		for (var j = 0; j < y; j++) {
 			var cssClass = arr[i][j];
 
-			cssClass = !cssClass;
+			arr[i][j] = !cssClass;
 			console.log(cssClass);
 		}
 	}
-	createTable();
+	createTable(arr);
 	// console.log('while loop', x);
 	k++;
 	// await sleep(20000);
