@@ -12,9 +12,9 @@ for (var j = 0; j < y; j++) {
 arr[1][0] = true;
 arr[1][1] = true;
 arr[1][2] = true;
-arr[2][0] = true;
-arr[2][1] = true;
-arr[2][2] = true;
+// arr[2][0] = true;
+// arr[2][1] = true;
+// arr[2][2] = true;
 // arr[1][0] = true;
 // arr[1][1] = true;
 // arr[2][2] = true;
@@ -71,7 +71,7 @@ function countNeighbours(arr, i, j) {
 			}
 		}
 	}
-	console.log('x:', i, 'y: ', j, 'counter: ', counter);
+	// console.log('x:', i, 'y: ', j, 'counter: ', counter);
 	return counter;
 }
 var k = 0;
@@ -82,11 +82,13 @@ setInterval(function() {
 		for (var i = 0; i < x; i++) {
 			for (var j = 0; j < y; j++) {
 				var neighbours = countNeighbours(arr, i, j);
-				// console.log('x =', i, 'y =', j, 'neighbours =', neighbours);
+				console.log(neighbours);
+				if (neighbours < 2 && arr[i][j]) {
+					arrNew[i][j] = false;
+				}
 			}
 		}
-
-		createTable(arrNew);
-		arr = arrNew;
 	}
+	createTable(arrNew);
+	arr = arrNew;
 }, 2000);
