@@ -64,7 +64,7 @@ function countNeighbours(arr, i, j) {
 		for (var nJ = j - 1; nJ <= j + 1; nJ++) {
 			if (nI == i && nJ == j) {
 				continue;
-			} else if (nI > 0 && nJ > 0 && nJ < y && nI < x) {
+			} else if (nI >= 0 && nJ >= 0 && nJ < y && nI < x) {
 				if (arr[nI][nJ]) {
 					counter++;
 				}
