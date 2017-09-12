@@ -79,6 +79,13 @@ var arrNew = arr;
 setInterval(function() {
 	k++;
 	if (k < 2) {
+		// change to $.each syntax??? http://api.jquery.com/jQuery.each/
+		// see also .forEach()
+		// or create a function for what happens in the loop
+		// https://stackoverflow.com/questions/750486/javascript-closure-inside-loops-simple-practical-example
+		// https://stackoverflow.com/questions/1331769/access-outside-variable-in-loop-from-javascript-closure
+		// https://stackoverflow.com/questions/7053965/when-using-callbacks-inside-a-loop-in-javascript-is-there-any-way-to-save-a-var
+		// note that the scope problem is solved in ES6 by using the let-syntax.
 		for (var i = 0; i < x; i++) {
 			for (var j = 0; j < y; j++) {
 				var neighbours = countNeighbours(arr, i, j);
