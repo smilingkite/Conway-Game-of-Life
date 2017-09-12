@@ -1,5 +1,5 @@
-var x = 10;
-var y = 10;
+var x = 3;
+var y = 3;
 
 // array with dead squares (alive = false)
 var arr = [];
@@ -9,22 +9,27 @@ for (var j = 0; j < y; j++) {
 		arr[j].push(false);
 	}
 }
-arr[0][0] = true;
+arr[1][0] = true;
 arr[1][1] = true;
-arr[1][4] = true;
-arr[2][8] = true;
-arr[3][7] = true;
-arr[4][6] = true;
-arr[5][6] = true;
-arr[6][9] = true;
-arr[0][9] = true;
-arr[1][8] = true;
-arr[8][4] = true;
-arr[8][8] = true;
-arr[9][7] = true;
-arr[7][6] = true;
-arr[9][6] = true;
-arr[9][9] = true;
+arr[1][2] = true;
+arr[2][0] = true;
+arr[2][1] = true;
+arr[2][2] = true;
+// arr[1][0] = true;
+// arr[1][1] = true;
+// arr[2][2] = true;
+// arr[3][7] = true;
+// arr[4][6] = true;
+// arr[5][6] = true;
+// arr[6][9] = true;
+// arr[0][9] = true;
+// arr[1][8] = true;
+// arr[8][4] = true;
+// arr[8][8] = true;
+// arr[9][7] = true;
+// arr[7][6] = true;
+// arr[9][6] = true;
+// arr[9][9] = true;
 function createTable(arr) {
 	$('tr').remove();
 	for (var i = 0; i < x; i++) {
@@ -53,17 +58,35 @@ $('td').on('click', function(e) {
 	} else arr[(thisX, thisY)] = true;
 });
 
-var k = 0;
-setInterval(function() {
-	k++;
-	if (k < 3) {
-		for (var i = 0; i < x; i++) {
-			for (var j = 0; j < y; j++) {
-				var cssClass = arr[i][j];
-
-				arr[i][j] = !cssClass;
+function countNeighbours(arr, i, j) {
+	var counter = 0;
+	for (var nI = i - 1; nI <= i + 1; nI++) {
+		for (var nJ = j - 1; nJ <= j + 1; nJ++) {
+			if (nI == i && nJ == j) {
+				continue;
+			} else if (nI > 0 && nJ > 0 && nJ < y && nI < x) {
+				if (arr[nI][nJ]) {
+					counter++;
+				}
 			}
 		}
-		createTable(arr);
+	}
+	console.log('x:', i, 'y: ', j, 'counter: ', counter);
+	return counter;
+}
+var k = 0;
+var arrNew = arr;
+setInterval(function() {
+	k++;
+	if (k < 2) {
+		for (var i = 0; i < x; i++) {
+			for (var j = 0; j < y; j++) {
+				var neighbours = countNeighbours(arr, i, j);
+				// console.log('x =', i, 'y =', j, 'neighbours =', neighbours);
+			}
+		}
+
+		createTable(arrNew);
+		arr = arrNew;
 	}
 }, 2000);
