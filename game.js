@@ -4,9 +4,9 @@ var y = 3;
 
 // array with dead squares (alive = false)
 var arr = [];
-for (var j = 0; j < y; j++) {
+for (let j = 0; j < y; j++) {
 	arr.push([]);
-	for (var i = 0; i < x; i++) {
+	for (let i = 0; i < x; i++) {
 		arr[j].push(false);
 	}
 }
@@ -76,7 +76,7 @@ function countNeighbours(arr, i, j) {
 	return counter;
 }
 var k = 0;
-var arrNew = arr;
+var arrNew = arr; // could be an empty array! Does NOT have to be linked to old array, except size
 setInterval(function() {
 	k++;
 	if (k < 2) {
@@ -87,11 +87,13 @@ setInterval(function() {
 		// https://stackoverflow.com/questions/1331769/access-outside-variable-in-loop-from-javascript-closure
 		// https://stackoverflow.com/questions/7053965/when-using-callbacks-inside-a-loop-in-javascript-is-there-any-way-to-save-a-var
 		// http://conceptf1.blogspot.nl/2013/11/javascript-closures.html
-		// 1) note that the scope problem is solved in ES6 by using the let-syntax.
+		// note that the scope problem is solved in ES6 by using the let-syntax,
+		// but using that here doesn't solve the problem.
 		// // map() // //
 		// ES6 array.map() function is also automatically closed.
 		// https://stackoverflow.com/questions/45659734/how-to-use-array-map-with-a-2-dimensional-array
 		// requires adapting countNeighbours to find the index of each cell.
+		// use bind??? http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/
 		for (let i = 0; i < x; i++) {
 			for (let j = 0; j < y; j++) {
 				let neighbours = countNeighbours(arr, i, j);
