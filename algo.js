@@ -3,6 +3,7 @@
 // (NB : while loop not necessary - duplicates what setInterval already does.)
 // * Perhaps create 'time' function that wraps the whole game-cycle?
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval#Example
+// https://stackoverflow.com/questions/1795100/how-to-exit-from-setinterval
 // * game recognizes when it ends (arr === newArr, or perhaps even a simple repeat ())
 
 // Game of Life INTRO
