@@ -96,7 +96,7 @@ setInterval(function() {
 			for (let j = 0; j < y; j++) {
 				let neighbours = countNeighbours(arr, i, j);
 				console.log(neighbours);
-				debugger;
+				// debugger;
 				// FIX adding this if-statement gives wrong count in countNeighbours
 				if (neighbours < 2 && arr[i][j]) {
 					arrNew[i][j] = false;
@@ -105,5 +105,5 @@ setInterval(function() {
 		}
 	}
 	createTable(arrNew);
-	arr = arrNew;
+	// arr = arrNew;
 }, 2000);
