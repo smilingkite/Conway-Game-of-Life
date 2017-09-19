@@ -1,5 +1,6 @@
 /////// still to do
 // * create 'stop' function, first with 'stop button'
+// (NB : while loop not necessary - duplicates what setInterval already does.)
 // * Perhaps create 'time' function that wraps the whole game-cycle?
 // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval#Example
 // * game recognizes when it ends (arr === newArr, or perhaps even a simple repeat ())
