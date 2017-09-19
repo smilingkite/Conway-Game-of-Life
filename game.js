@@ -76,7 +76,7 @@ function countNeighbours(arr, i, j) {
 	return counter;
 }
 var k = 0;
-var arrNew = arr; // could be an empty array! Does NOT have to be linked to old array, except size
+var arrNew = $.extend(true, {}, arr);
 setInterval(function() {
 	k++;
 	if (k < 2) {
