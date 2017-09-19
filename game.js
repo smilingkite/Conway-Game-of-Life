@@ -38,7 +38,13 @@ function createTable(arr) {
 		}
 	}
 }
+function createButton() {
+	var button = $('<button type="button">Start Game</button>');
+	$('#board').append(button);
+}
+
 createTable(arr);
+createButton();
 
 $('td').on('click', function(e) {
 	$(this).toggleClass('alive');
@@ -66,27 +72,34 @@ function countNeighbours(arr, i, j) {
 	}
 	return counter;
 }
-var k = 0;
-var arrNew = $.extend(true, {}, arr);
-setInterval(function() {
-	k++;
-	if (k < 10) {
-		for (let i = 0; i < x; i++) {
-			for (let j = 0; j < y; j++) {
-				let neighbours = countNeighbours(arr, i, j);
-				console.log(neighbours);
-				if (neighbours < 2 && arr[i][j]) {
-					arrNew[i][j] = false;
-				} else if (neighbours <= 3 && arr[i][j]) {
-					arrNew[i][j] = true;
-				} else if (neighbours > 3 && arr[i][j]) {
-					arrNew[i][j] = false;
-				} else if (neighbours === 3 && !arr[i][j]) {
-					arrNew[i][j] = true;
+
+function game() {
+	var k = 0;
+	var arrNew = $.extend(true, {}, arr);
+	setInterval(function() {
+		k++;
+		if (k < 10) {
+			for (let i = 0; i < x; i++) {
+				for (let j = 0; j < y; j++) {
+					let neighbours = countNeighbours(arr, i, j);
+					console.log(neighbours);
+					if (neighbours < 2 && arr[i][j]) {
+						arrNew[i][j] = false;
+					} else if (neighbours <= 3 && arr[i][j]) {
+						arrNew[i][j] = true;
+					} else if (neighbours > 3 && arr[i][j]) {
+						arrNew[i][j] = false;
+					} else if (neighbours === 3 && !arr[i][j]) {
+						arrNew[i][j] = true;
+					}
 				}
 			}
 		}
-	}
-	createTable(arrNew);
-	arr = $.extend(true, {}, arrNew);
-}, 2000);
+		createTable(arrNew);
+		var arrOld = $.extend(true, {}, arr);
+		arr = $.extend(true, {}, arrNew);
+	}, 2000);
+}
+$('button').on('click', function(e) {
+	game();
+});
