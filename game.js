@@ -40,6 +40,7 @@ function createTable(arr) {
 }
 createTable(arr);
 
+/// FIX
 $('td').on('click', function(e) {
 	$(this).toggleClass('alive');
 	e.preventDefault();
