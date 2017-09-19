@@ -1,4 +1,7 @@
 /////// still to do
+// * create 'stop' function, first with 'stop button'
+// * Perhaps create 'time' function that wraps the whole game-cycle?
+// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval#Example
 // * game recognizes when it ends (arr === newArr, or perhaps even a simple repeat ())
 
 // Game of Life INTRO
@@ -38,7 +41,7 @@
 // tile in your game board and toggle its state (live/dead). After every cycle,
 // make your runner sleep for a little while.
 //
-// * Allow users to click on cells before the game starts, so they can set an initial setup.
+// Allow users to click on cells before the game starts, so they can set an initial setup.
 //
 // Implement the actual game rules. You will have to loop (twice for multidimensional)
 // over your entire board. Implement one rule at a time and make sure it works correctly.

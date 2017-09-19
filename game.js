@@ -40,13 +40,23 @@ function createTable(arr) {
 		}
 	}
 }
-function createButton() {
-	var button = $('<button type="button">Start Game</button>');
+function createStartButton() {
+	let button = $('<button class="button">Start Game</button>');
 	$('#board').append(button);
 }
 
+function createStopButton() {
+	$('button').remove();
+	let button = $('<button class="stop">Stop Game</button>');
+	$('#board').append(button);
+}
+
+function stopGame() {
+	clearInterval(nIntervId);
+}
+
 createTable(arr);
-createButton();
+createStartButton();
 
 $('td').on('click', function(e) {
 	$(this).toggleClass('alive');
@@ -76,27 +86,25 @@ function countNeighbours(arr, i, j) {
 }
 
 function game() {
-	var k = 0;
 	var arrNew = $.extend(true, {}, arr);
+	var k = 0;
 	setInterval(function() {
-		k++;
-		if (k < 10) {
-			for (let i = 0; i < x; i++) {
-				for (let j = 0; j < y; j++) {
-					let neighbours = countNeighbours(arr, i, j);
-					console.log(neighbours);
-					if (neighbours < 2 && arr[i][j]) {
-						arrNew[i][j] = false;
-					} else if (neighbours <= 3 && arr[i][j]) {
-						arrNew[i][j] = true;
-					} else if (neighbours > 3 && arr[i][j]) {
-						arrNew[i][j] = false;
-					} else if (neighbours === 3 && !arr[i][j]) {
-						arrNew[i][j] = true;
-					}
+		for (let i = 0; i < x; i++) {
+			for (let j = 0; j < y; j++) {
+				let neighbours = countNeighbours(arr, i, j);
+				if (neighbours < 2 && arr[i][j]) {
+					arrNew[i][j] = false;
+				} else if (neighbours <= 3 && arr[i][j]) {
+					arrNew[i][j] = true;
+				} else if (neighbours > 3 && arr[i][j]) {
+					arrNew[i][j] = false;
+				} else if (neighbours === 3 && !arr[i][j]) {
+					arrNew[i][j] = true;
 				}
 			}
 		}
+		k += 1;
+		console.log(k);
 		createTable(arrNew);
 		var arrOld = $.extend(true, {}, arr);
 		arr = $.extend(true, {}, arrNew);
