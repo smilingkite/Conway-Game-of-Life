@@ -11,18 +11,20 @@ for (let j = 0; j < y; j++) {
 	}
 }
 
-arr[1][0] = true;
-arr[1][1] = true;
-arr[1][2] = true;
-
-arr[0][7] = true;
-arr[0][8] = true;
-arr[1][7] = true;
-
-arr[4][0] = true;
-arr[4][1] = true;
-arr[4][2] = true;
-arr[5][0] = true;
+arr[4][4] = true;
+arr[4][5] = true;
+arr[4][6] = true;
+arr[3][5] = true;
+arr[5][5] = true;
+//
+// arr[0][7] = true;
+// arr[0][8] = true;
+// arr[1][7] = true;
+//
+// arr[4][0] = true;
+// arr[4][1] = true;
+// arr[4][2] = true;
+// arr[5][0] = true;
 function createTable(arr) {
 	$('tr').remove();
 	for (var i = 0; i < x; i++) {
@@ -100,6 +102,7 @@ function game() {
 		arr = $.extend(true, {}, arrNew);
 	}, 2000);
 }
-$('button').on('click', function(e) {
+
+$('button').on('click', function() {
 	game();
 });

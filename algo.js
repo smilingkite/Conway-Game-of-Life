@@ -1,8 +1,7 @@
 /////// still to do
-// * game starts after click on button
-// * re-implement user can click on board to create game
 // * game recognizes when it ends (arr === newArr, or perhaps even a simple repeat ())
 
+// Game of Life INTRO
 // The universe of the Game of Life is an infinite two-dimensional orthogonal
 // grid of square cells, each of which is in one of two possible states,
 // alive or dead, or "populated" or "unpopulated". Every cell interacts with its
