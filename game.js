@@ -1,6 +1,6 @@
 'use strict';
-var x = 3;
-var y = 3;
+var x = 10;
+var y = 10;
 
 // array with dead squares (alive = false)
 var arr = [];
@@ -10,27 +10,19 @@ for (let j = 0; j < y; j++) {
 		arr[j].push(false);
 	}
 }
+
 arr[1][0] = true;
 arr[1][1] = true;
 arr[1][2] = true;
-// arr[2][0] = true;
-// arr[2][1] = true;
-// arr[2][2] = true;
-// arr[1][0] = true;
-// arr[1][1] = true;
-// arr[2][2] = true;
-// arr[3][7] = true;
-// arr[4][6] = true;
-// arr[5][6] = true;
-// arr[6][9] = true;
-// arr[0][9] = true;
-// arr[1][8] = true;
-// arr[8][4] = true;
-// arr[8][8] = true;
-// arr[9][7] = true;
-// arr[7][6] = true;
-// arr[9][6] = true;
-// arr[9][9] = true;
+
+arr[0][7] = true;
+arr[0][8] = true;
+arr[1][7] = true;
+
+arr[4][0] = true;
+arr[4][1] = true;
+arr[4][2] = true;
+arr[5][0] = true;
 function createTable(arr) {
 	$('tr').remove();
 	for (var i = 0; i < x; i++) {
@@ -72,40 +64,29 @@ function countNeighbours(arr, i, j) {
 			}
 		}
 	}
-	// console.log('x:', i, 'y: ', j, 'counter: ', counter);
 	return counter;
 }
 var k = 0;
 var arrNew = $.extend(true, {}, arr);
 setInterval(function() {
 	k++;
-	if (k < 2) {
-		// change to $.each syntax??? http://api.jquery.com/jQuery.each/
-		// see also .forEach()
-		// or create a function for what happens in the loop
-		// https://stackoverflow.com/questions/750486/javascript-closure-inside-loops-simple-practical-example
-		// https://stackoverflow.com/questions/1331769/access-outside-variable-in-loop-from-javascript-closure
-		// https://stackoverflow.com/questions/7053965/when-using-callbacks-inside-a-loop-in-javascript-is-there-any-way-to-save-a-var
-		// http://conceptf1.blogspot.nl/2013/11/javascript-closures.html
-		// note that the scope problem is solved in ES6 by using the let-syntax,
-		// but using that here doesn't solve the problem.
-		// // map() // //
-		// ES6 array.map() function is also automatically closed.
-		// https://stackoverflow.com/questions/45659734/how-to-use-array-map-with-a-2-dimensional-array
-		// requires adapting countNeighbours to find the index of each cell.
-		// use bind??? http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/
+	if (k < 10) {
 		for (let i = 0; i < x; i++) {
 			for (let j = 0; j < y; j++) {
 				let neighbours = countNeighbours(arr, i, j);
 				console.log(neighbours);
-				// debugger;
-				// FIX adding this if-statement gives wrong count in countNeighbours
 				if (neighbours < 2 && arr[i][j]) {
 					arrNew[i][j] = false;
+				} else if (neighbours <= 3 && arr[i][j]) {
+					arrNew[i][j] = true;
+				} else if (neighbours > 3 && arr[i][j]) {
+					arrNew[i][j] = false;
+				} else if (neighbours === 3 && !arr[i][j]) {
+					arrNew[i][j] = true;
 				}
 			}
 		}
 	}
 	createTable(arrNew);
-	// arr = arrNew;
+	arr = $.extend(true, {}, arrNew);
 }, 2000);
