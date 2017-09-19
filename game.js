@@ -89,5 +89,6 @@ setInterval(function() {
 		}
 	}
 	createTable(arrNew);
+	arrOld = $.extend(true, {}, arr);
 	arr = $.extend(true, {}, arrNew);
 }, 2000);
