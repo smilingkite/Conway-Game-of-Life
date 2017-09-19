@@ -1,3 +1,4 @@
+'use strict';
 var x = 3;
 var y = 3;
 
@@ -91,10 +92,11 @@ setInterval(function() {
 		// ES6 array.map() function is also automatically closed.
 		// https://stackoverflow.com/questions/45659734/how-to-use-array-map-with-a-2-dimensional-array
 		// requires adapting countNeighbours to find the index of each cell.
-		for (var i = 0; i < x; i++) {
-			for (var j = 0; j < y; j++) {
-				var neighbours = countNeighbours(arr, i, j);
+		for (let i = 0; i < x; i++) {
+			for (let j = 0; j < y; j++) {
+				let neighbours = countNeighbours(arr, i, j);
 				console.log(neighbours);
+				debugger;
 				// FIX adding this if-statement gives wrong count in countNeighbours
 				if (neighbours < 2 && arr[i][j]) {
 					arrNew[i][j] = false;
