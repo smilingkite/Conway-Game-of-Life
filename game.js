@@ -86,7 +86,9 @@ setInterval(function() {
 		// https://stackoverflow.com/questions/1331769/access-outside-variable-in-loop-from-javascript-closure
 		// https://stackoverflow.com/questions/7053965/when-using-callbacks-inside-a-loop-in-javascript-is-there-any-way-to-save-a-var
 		// http://conceptf1.blogspot.nl/2013/11/javascript-closures.html
-		// note that the scope problem is solved in ES6 by using the let-syntax.
+		// 1) note that the scope problem is solved in ES6 by using the let-syntax.
+		// 2) *** note that ES6 array.map function is also automatically closed.
+		// https://stackoverflow.com/questions/45659734/how-to-use-array-map-with-a-2-dimensional-array
 		for (var i = 0; i < x; i++) {
 			for (var j = 0; j < y; j++) {
 				var neighbours = countNeighbours(arr, i, j);
