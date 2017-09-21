@@ -1,11 +1,3 @@
-/////// still to do
-// * create 'stop' function, first with 'stop button'
-// (NB : while loop not necessary - duplicates what setInterval already does.)
-// * Perhaps create 'time' function that wraps the whole game-cycle?
-// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval#Example
-// https://stackoverflow.com/questions/1795100/how-to-exit-from-setinterval
-// * game recognizes when it ends (arr === newArr, or perhaps even a simple repeat ())
-
 // Game of Life INTRO
 // The universe of the Game of Life is an infinite two-dimensional orthogonal
 // grid of square cells, each of which is in one of two possible states,
@@ -25,8 +17,7 @@
 // (in other words, each generation is a pure function of the preceding one).
 //
 //  The rules continue to be applied repeatedly to create further generations.
-//
-// *** from Codaisseur
+// *** Codaisseur instructions
 // https://reader.codaisseur.com/courses/intermediate-bootcamp-228c9185-0564-4394-84aa-50f86517c6e2/132/javascript-labs/lab-1-conway-s-game-of-life
 // Implement a single cell. A cell should be square box of a few pixels with a border.
 //
