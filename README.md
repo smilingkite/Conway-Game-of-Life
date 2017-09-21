@@ -1,4 +1,4 @@
-# Conway-Game-of-Life
+# John Conway's Game of Life
 
 A project I did to practice [jQuery](https://jquery.com/) and javascript. I ended up using the [_underscore library](http://underscorejs.org/) as well. 
 
