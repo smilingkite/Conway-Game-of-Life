@@ -2,9 +2,11 @@
 
 A project I did to practice [jQuery](https://jquery.com/) and javascript. I ended up using the [_underscore library](http://underscorejs.org/) as well. 
 
-From [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life): 
+[See it live!](http://vb.katinkahesselink.net/gameOfLife.html)
 
 ![screenshot](https://github.com/smilingkite/Conway-Game-of-Life/blob/master/gameLife.png)
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life): 
 
 The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
 
